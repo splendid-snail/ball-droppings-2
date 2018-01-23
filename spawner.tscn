@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://spawner.gd" type="Script" id=1]
+[ext_resource path="res://spawner.png" type="Texture" id=2]
+[ext_resource path="res://spawn_collider.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[node name="spawner" type="StaticBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 2.0
+one_shot = false
+autostart = true
+
+[node name="spawn_area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="spawn_collider" type="CollisionShape2D" parent="spawn_area"]
+
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+script/script = ExtResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="input_event" from="spawn_area" to="spawn_area/spawn_collider" method="_on_spawn_area_input_event"]
+
+[connection signal="mouse_enter" from="spawn_area" to="spawn_area/spawn_collider" method="_on_spawn_area_mouse_enter"]
+
+[connection signal="mouse_exit" from="spawn_area" to="spawn_area/spawn_collider" method="_on_spawn_area_mouse_exit"]
+
+

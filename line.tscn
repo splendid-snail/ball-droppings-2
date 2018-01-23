@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://line.gd" type="Script" id=1]
+[ext_resource path="res://start_grab_collider.gd" type="Script" id=2]
+[ext_resource path="res://end_grab_collider.gd" type="Script" id=3]
+
+[sub_resource type="SegmentShape2D" id=1]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( 0, 1 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[node name="line" type="StaticBody2D" groups=[
+"lines",
+]]
+
+process/pause_mode = 2
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+
+[node name="line_collider" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="start_grab" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="start_grab_collider" type="CollisionShape2D" parent="start_grab"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+script/script = ExtResource( 2 )
+
+[node name="end_grab" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="end_grab_collider" type="CollisionShape2D" parent="end_grab"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+script/script = ExtResource( 3 )
+
+[connection signal="input_event" from="start_grab" to="start_grab/start_grab_collider" method="_on_start_grab_input_event"]
+
+[connection signal="mouse_enter" from="start_grab" to="start_grab/start_grab_collider" method="_on_start_grab_mouse_enter"]
+
+[connection signal="mouse_exit" from="start_grab" to="start_grab/start_grab_collider" method="_on_start_grab_mouse_exit"]
+
+[connection signal="input_event" from="end_grab" to="end_grab/end_grab_collider" method="_on_end_grab_input_event"]
+
+[connection signal="mouse_enter" from="end_grab" to="end_grab/end_grab_collider" method="_on_end_grab_mouse_enter"]
+
+[connection signal="mouse_exit" from="end_grab" to="end_grab/end_grab_collider" method="_on_end_grab_mouse_exit"]
+
+
