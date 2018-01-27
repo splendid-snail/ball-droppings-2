@@ -11,6 +11,7 @@ var over_hex_spawner = false
 var grabbing_edge = false
 var grabbing_spawner = false
 var grabbing_hex_spawner = false
+var grabbing_perc_line = false
 var drawing = false
 var mod_held = false
 

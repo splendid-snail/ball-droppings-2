@@ -1,9 +1,18 @@
+###TO DO
+# perc line should be moveable and deletable like regular lines
+# BPM sliders for spawners 
+# to also include flip gravity button (global?)
+# Tweak shake cooldown limit (this could be global for ball and hex)
+# look into making the screen stretch 
+# HEXAGONS MUST DIE
+
 extends Node2D
 
 var mouse_held = false
 var lines = []
 var line_scene = load("res://line.tscn")
 var perc_lines = []
+var perc_line_scene = load("res://perc_line.tscn")
 var delete = false
 const WHITE = Color(1, 1, 1, 1)
 const GREY = Color(0.5, 0.5, 0.5, 1)
@@ -12,6 +21,7 @@ const BLACK = Color(0, 0, 0, 1)
 func draw_dotted_line(height, colour):
 	var last_x = 0
 	var dots_drawn = 0
+	
 	while dots_drawn < 160:#you'd need to adjust this for different screen widths...
 		draw_line(Vector2(last_x, height), Vector2(last_x +5, height), colour, 1)
 		last_x += 5
@@ -35,8 +45,8 @@ func _input(event):
 			global.drawing = true
 			global.start_pos = get_global_mouse_pos()
 		else:
-			var perc_line_height = get_global_mouse_pos().y
-			perc_lines.append(perc_line_height)
+			var perc_line_node = perc_line_scene.instance()
+			add_child(perc_line_node)
 		
 	if event.is_action_released("draw") and global.drawing:
 		global.drawing = false
@@ -52,6 +62,13 @@ func _fixed_process(delta):
 		if node.is_in_group("lines") and not node.is_hidden():
 			var line = node.position
 			lines.append(line)
+			
+	perc_lines = []
+	var perc_kids = get_children()
+	for node in perc_kids:
+		if node.is_in_group("percs") and not node.is_hidden():
+			var perc_line = node.height
+			perc_lines.append(perc_line)
 	update()
 
 func _draw():

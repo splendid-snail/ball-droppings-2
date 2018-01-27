@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://hex_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/deep bass C2.wav" type="Sample" id=4]
-[ext_resource path="res://sounds/small bell C4.wav" type="Sample" id=5]
-[ext_resource path="res://pauser.gd" type="Script" id=6]
+[ext_resource path="res://sounds/shake.wav" type="Sample" id=5]
+[ext_resource path="res://sounds/small bell C4.wav" type="Sample" id=6]
+[ext_resource path="res://pauser.gd" type="Script" id=7]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -15,11 +16,17 @@ samples/deep_bass = {
 "priority": 0,
 "sample": ExtResource( 4 )
 }
-samples/small_bell = {
+samples/shake = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 5 )
+}
+samples/small_bell = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
 }
 
 [node name="Game" type="Node2D"]
@@ -57,6 +64,6 @@ default/chorus_send = 0.0
 [node name="pauser" type="Node" parent="."]
 
 process/pause_mode = 2
-script/script = ExtResource( 6 )
+script/script = ExtResource( 7 )
 
 
