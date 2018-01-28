@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://perc_line.gd" type="Script" id=1]
 [ext_resource path="res://perc_line_collider.gd" type="Script" id=2]
+[ext_resource path="res://perc_handle_collider.gd" type="Script" id=3]
 
 [sub_resource type="SegmentShape2D" id=1]
 
 custom_solver_bias = 0.0
 a = Vector2( 0, 0 )
 b = Vector2( 0, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="perc_line" type="StaticBody2D" groups=[
 "percs",
@@ -33,5 +39,31 @@ shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0
 script/script = ExtResource( 2 )
+
+[node name="perc_line_handle" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 40, 0, 0, 0.2, 399.996, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="perc_handle_collider" type="CollisionShape2D" parent="perc_line_handle"]
+
+transform/pos = Vector2( 399.996, 0 )
+transform/scale = Vector2( 40, 0.2 )
+shape = SubResource( 2 )
+trigger = true
+_update_shape_index = 0
+script/script = ExtResource( 3 )
+
+[connection signal="input_event" from="perc_line_handle" to="perc_line_handle/perc_handle_collider" method="_on_perc_line_handle_input_event"]
+
+[connection signal="mouse_enter" from="perc_line_handle" to="perc_line_handle/perc_handle_collider" method="_on_perc_line_handle_mouse_enter"]
+
+[connection signal="mouse_exit" from="perc_line_handle" to="perc_line_handle/perc_handle_collider" method="_on_perc_line_handle_mouse_exit"]
 
 

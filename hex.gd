@@ -4,7 +4,7 @@ var bumps = 0
 var bump_limit = 2
 var shake_ready = true
 var shake_cooldown = 0
-var cooldown_limit = 5
+var cooldown_limit = 10
 
 func _ready():
 	set_global_pos(global.hex_spawner_pos)

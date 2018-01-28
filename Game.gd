@@ -1,10 +1,11 @@
 ###TO DO
-# perc line should be moveable and deletable like regular lines
-# BPM sliders for spawners 
+# perc lines could have a limit?
+# BPM sliders for spawners: and can the UI be collapsible?
 # to also include flip gravity button (global?)
 # Tweak shake cooldown limit (this could be global for ball and hex)
-# look into making the screen stretch 
+# making the screen stretchable or just bigger? 
 # HEXAGONS MUST DIE
+# Ultimate long term goal: SAVE STATES 
 
 extends Node2D
 
@@ -22,7 +23,7 @@ func draw_dotted_line(height, colour):
 	var last_x = 0
 	var dots_drawn = 0
 	
-	while dots_drawn < 160:#you'd need to adjust this for different screen widths...
+	while dots_drawn < 160: #you'd need to adjust this for different screen widths...
 		draw_line(Vector2(last_x, height), Vector2(last_x +5, height), colour, 1)
 		last_x += 5
 		dots_drawn += 1

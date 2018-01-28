@@ -37,16 +37,16 @@ script/script = ExtResource( 1 )
 [node name="spawner" parent="." instance=ExtResource( 2 )]
 
 process/pause_mode = 1
-transform/pos = Vector2( 400, 20 )
+transform/pos = Vector2( 240, 40 )
 
 [node name="hex_spawner" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 480, 80 )
+transform/pos = Vector2( 560, 40 )
 
 [node name="sound" type="SamplePlayer" parent="."]
 
 process/pause_mode = 1
-config/polyphony = 32
+config/polyphony = 64
 config/samples = SubResource( 1 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0

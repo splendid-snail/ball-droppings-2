@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var shake_ready = true
 var shake_cooldown = 0
-var cooldown_limit = 5
+var cooldown_limit = 10
 
 func _ready():
 	set_global_pos(global.spawner_pos)
@@ -15,15 +15,17 @@ func _fixed_process(delta):
 	
 	if not shake_ready:
 		shake_cooldown += 1
-	if shake_cooldown == cooldown_limit:
+	if shake_cooldown >= cooldown_limit:
+		shake_cooldown = 0
 		shake_ready = true
 	
 	var pitch = (pos.y * 0.0025) + 0.5 
 	var pan = (pos.x * 0.0025) - 1
 	
-	if get_colliding_bodies().size() > 0:
-		print(get_colliding_bodies())
-		for body in get_colliding_bodies():
+	var collides = get_colliding_bodies()
+	
+	if collides.size() > 0:
+		for body in collides:
 			if body.is_in_group("lines") or body.is_in_group("balls"):
 				get_node("/root/Game/sound/").set_default_pitch_scale(pitch)
 				get_node("/root/Game/sound/").set_default_pan(pan)
