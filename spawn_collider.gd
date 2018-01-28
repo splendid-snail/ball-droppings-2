@@ -24,4 +24,4 @@ func _on_spawn_area_input_event( viewport, event, shape_idx ):
 func _fixed_process(delta):
 	global.spawner_pos = get_global_pos()
 	if held:
-		print(get_parent().get_parent().set_pos(get_global_mouse_pos()))
+		get_parent().get_parent().set_pos(get_global_mouse_pos())

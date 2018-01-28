@@ -1,15 +1,20 @@
 # ball-droppings-2
-an unofficial sequel / expansion / homage to the classic ball droppings - a Godot/GDscript learning project
+an unofficial homage/expansion of the classic BallDroppings (http://balldroppings.com/).
 
-controls:
-left click and drag in empty space to draw a line
-left click and drag the end of a line to move it
-right click the end of a line to delete that line
 
-hold ctrl then left click to place a dotted line
-left click and drag to move a dotted line up and down the screen
-right click on a dotted line to delete it
+a Godot 2.1.4/GDscript learning project. credit to Josh Nimoy for the original concept.
 
-left click and drag either of the spawners to move them
 
-press space to pause
+## this brings:
+
+* hexagons: bounce less, disappear after two or three impacts, sound deep af
+* dotted lines: hold ctrl to place. these don't affect ball/hexagon movement but make a shakey sound
+
+
+## coming soon:
+
+* bpm sliders for hex and ball release speed on a...
+* proper collapsible menu, also containing a...
+* button to invert gravity.
+* various useful keyboard shortcuts
+* saving and loading

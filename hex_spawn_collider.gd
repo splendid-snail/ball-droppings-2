@@ -12,7 +12,6 @@ func _on_hex_spawn_area_mouse_enter():
 func _on_hex_spawn_area_mouse_exit():
 	global.over_hex_spawner = false
 
-
 func _on_hex_spawn_area_input_event( viewport, event, shape_idx ):
 	if event.is_action_pressed("draw") and not global.mod_held:
 		held = true
@@ -25,4 +24,4 @@ func _on_hex_spawn_area_input_event( viewport, event, shape_idx ):
 func _fixed_process(delta):
 	global.hex_spawner_pos = get_global_pos()
 	if held:
-		print(get_parent().get_parent().set_pos(get_global_mouse_pos()))
+		get_parent().get_parent().set_pos(get_global_mouse_pos())
