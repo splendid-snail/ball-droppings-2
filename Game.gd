@@ -61,13 +61,13 @@ func _on_menu_button_pressed():
 	if not global.menu_visible:
 		get_node("menu_panel").show()
 		global.menu_visible = true
-		global.paused = true
-		get_tree().set_pause(true)
+		#global.paused = true
+		#get_tree().set_pause(true)
 	else:
 		get_node("menu_panel").hide()
 		global.menu_visible = false
-		global.paused = false
-		get_tree().set_pause(false)
+		#global.paused = false
+		#get_tree().set_pause(false)
 
 func _on_menu_button_mouse_enter():
 	global.over_button = true
