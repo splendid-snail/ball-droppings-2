@@ -13,6 +13,11 @@ func _fixed_process(delta):
 	if pos.x < global.LEFT_EDGE or pos.x > global.RIGHT_EDGE or pos.y > global.BOTTOM:
 		queue_free()
 	
+	if global.gravity_flipped:
+		set_gravity_scale(-1)
+	else:
+		set_gravity_scale(1)
+	
 	if not shake_ready:
 		shake_cooldown += 1
 	if shake_cooldown >= cooldown_limit:

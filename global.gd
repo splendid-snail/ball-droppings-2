@@ -6,6 +6,7 @@ var end_pos = Vector2()
 var spawner_pos = Vector2()
 var ball_spawn_rate = 2
 var balls_spawning = true
+var ball_spawn_dummy = 0
 
 var hex_spawner_pos = Vector2()
 var hex_spawn_rate = 4
@@ -20,6 +21,8 @@ var grabbing_edge = false
 var grabbing_spawner = false
 var grabbing_hex_spawner = false
 var grabbing_perc_line = false
+
+var gravity_flipped = false
 
 var paused = false
 

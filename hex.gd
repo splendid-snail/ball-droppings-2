@@ -14,7 +14,12 @@ func _fixed_process(delta):
 	var pos = get_global_pos()
 	if pos.x < global.LEFT_EDGE or pos.x > global.RIGHT_EDGE or pos.y > global.BOTTOM:
 		queue_free()
-		
+	
+	if global.gravity_flipped:
+		set_gravity_scale(-1)
+	else:
+		set_gravity_scale(1)
+	
 	var pitch = (pos.y * 0.0025) 
 	var pan = (pos.x * 0.0025) - 1
 	
