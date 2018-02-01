@@ -1,11 +1,12 @@
 ###TO DO
+# change behaviour so you can draw lines when menu open (but not over menu)
 # perc lines could have a limit?
-# BPM sliders for spawners: and can the UI be collapsible?
+# BPM sliders/text entry should work
 # MORE controls (see original): pitch range, clear lines/balls/all, init defaults
 # make lines interactive when balls paused?
-# to also include flip gravity button (global?)
 # making the screen stretchable or just bigger?
 # HEXAGONS MUST DIE
+# STUFF GOING OFF THE TOP MUST DIE
 # SAVE STATES
 
 extends Node2D

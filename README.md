@@ -2,7 +2,7 @@
 an unofficial homage/expansion of the classic BallDroppings (http://balldroppings.com/).
 
 
-a Godot 2.1.4/GDscript learning project. credit to Josh Nimoy for the original concept.
+a Godot 2.1.4/GDscript learning project. credit to JT Nimoy for the original concept.
 
 
 ## this brings:
