@@ -12,7 +12,7 @@ func _ready():
 
 func _fixed_process(delta):
 	var pos = get_global_pos()
-	if pos.x < global.LEFT_EDGE or pos.x > global.RIGHT_EDGE or pos.y > global.BOTTOM:
+	if pos.x < global.LEFT_EDGE or pos.x > global.RIGHT_EDGE or pos.y > global.BOTTOM or pos.y < global.TOP:
 		queue_free()
 	
 	if global.gravity_flipped:

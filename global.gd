@@ -5,11 +5,14 @@ var end_pos = Vector2()
 
 var spawner_pos = Vector2()
 var ball_spawn_rate = 2
+var ball_spawn_min = 0.5
+var ball_spawn_max = 8
 var balls_spawning = true
-var ball_spawn_dummy = 0
 
 var hex_spawner_pos = Vector2()
 var hex_spawn_rate = 4
+var hex_spawn_min = 0.5
+var hex_spawn_max = 8
 var hexes_spawning = true 
 
 var over_edge = false
@@ -34,6 +37,7 @@ var mod_held = false
 
 const LEFT_EDGE = -50
 const RIGHT_EDGE = 850
+const TOP = -50
 const BOTTOM = 650
 
 func _ready():

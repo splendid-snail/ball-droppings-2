@@ -1,12 +1,11 @@
 ###TO DO
 # change behaviour so you can draw lines when menu open (but not over menu)
 # perc lines could have a limit?
-# BPM sliders/text entry should work
-# MORE controls (see original): pitch range, clear lines/balls/all, init defaults
+# a more intuitive scale for the rate sliders
+# small font & labels
+# MORE controls: pitch range, clear lines/balls/all, init defaults
 # make lines interactive when balls paused?
 # making the screen stretchable or just bigger?
-# HEXAGONS MUST DIE
-# STUFF GOING OFF THE TOP MUST DIE
 # SAVE STATES
 
 extends Node2D
@@ -21,11 +20,9 @@ const WHITE = Color(1, 1, 1, 1)
 const GREY = Color(0.5, 0.5, 0.5, 1)
 const BLACK = Color(0, 0, 0, 1)
 
-
 func draw_dotted_line(height, colour):
 	var last_x = 0
 	var dots_drawn = 0
-
 
 	while dots_drawn < 160: #you'd need to adjust this for different screen widths...
 		draw_line(Vector2(last_x, height), Vector2(last_x +5, height), colour, 1)
@@ -35,11 +32,9 @@ func draw_dotted_line(height, colour):
 		last_x += 5
 		dots_drawn +=1
 
-
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
-
 
 func _input(event):
 	if event.is_action_pressed("mod"):
@@ -62,7 +57,6 @@ func _input(event):
 		var line_node = line_scene.instance()
 		add_child(line_node)
 
-
 func _on_menu_button_pressed():
 	if not global.menu_visible:
 		get_node("menu_panel").show()
@@ -75,18 +69,14 @@ func _on_menu_button_pressed():
 		#global.paused = false
 		#get_tree().set_pause(false)
 
-
 func _on_menu_button_mouse_enter():
 	global.over_button = true
-
 
 func _on_menu_button_mouse_exit():
 	global.over_button = false
 
-
 func _on_flip_gravity_button_pressed():
 	global.gravity_flipped = !global.gravity_flipped
-
 
 func _fixed_process(delta):
 	lines = []
@@ -103,10 +93,7 @@ func _fixed_process(delta):
 			var perc_line = node.height
 			perc_lines.append(perc_line)
 
-	print(global.ball_spawn_dummy)
-	print(global.gravity_flipped)
 	update()
-
 
 func _draw():
 	var pos = get_global_mouse_pos()
