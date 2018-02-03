@@ -6,7 +6,7 @@ func _ready():
 	set_text(str(global.hex_spawn_rate))
 
 func _on_hex_rate_text_text_entered( text ):
-	var num = int(text)
+	var num = float(text)
 	if num < global.hex_spawn_min:
 		num = global.hex_spawn_min
 	if num > global.hex_spawn_max:

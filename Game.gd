@@ -92,7 +92,8 @@ func _fixed_process(delta):
 		if node.is_in_group("percs") and not node.is_hidden():
 			var perc_line = node.height
 			perc_lines.append(perc_line)
-
+	
+	print(global.over_menu)
 	update()
 
 func _draw():
@@ -110,5 +111,5 @@ func _draw():
 		draw_circle(global.start_pos, 4, GREY)
 		draw_line(global.start_pos, pos, GREY, 1)
 
-	if global.mod_held and not global.drawing:
+	if global.mod_held and not global.drawing and not global.menu_visible:
 		draw_dotted_line(pos.y, GREY)

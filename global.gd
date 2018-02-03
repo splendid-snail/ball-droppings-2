@@ -19,6 +19,7 @@ var over_edge = false
 var over_spawner = false
 var over_hex_spawner = false
 var over_button = false
+var over_menu = false
 
 var grabbing_edge = false
 var grabbing_spawner = false

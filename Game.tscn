@@ -199,11 +199,11 @@ max_lines_visible = -1
 [node name="spawner" parent="." instance=ExtResource( 12 )]
 
 process/pause_mode = 1
-transform/pos = Vector2( 240, 40 )
+transform/pos = Vector2( 150, 100 )
 
 [node name="hex_spawner" parent="." instance=ExtResource( 13 )]
 
-transform/pos = Vector2( 560, 40 )
+transform/pos = Vector2( 450, 250 )
 
 [node name="sound" type="SamplePlayer" parent="."]
 

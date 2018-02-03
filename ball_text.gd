@@ -6,7 +6,7 @@ func _ready():
 	set_text(str(global.ball_spawn_rate))
 
 func _on_ball_rate_text_text_entered( text ):
-	var num = int(text)
+	var num = float(text)
 	if num < global.ball_spawn_min:
 		num = global.ball_spawn_min
 	if num > global.ball_spawn_max:

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/small bell C4.wav-0140519e7c91eb0959fc0589c9f91f10.sample"
+
+[deps]
+
+source_file="res://sounds/small bell C4.wav"
+source_md5="6d46206c74d1a77d753503111ae0c959"
+
+dest_files=[ "res://.import/small bell C4.wav-0140519e7c91eb0959fc0589c9f91f10.sample" ]
+dest_md5="f44b66f0e5079f5dc65dd00a3e1dd482"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
